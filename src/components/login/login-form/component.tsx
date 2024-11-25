@@ -6,7 +6,7 @@ import { ErrorMessage } from "@/components/helpers";
 import Link from "next/link";
 import { useFormState } from "react-dom";
 
-import styles from "./login-form.module.css";
+import styles from "../login-form.module.css";
 import { FormButton } from "@/components/forms/formButton";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
