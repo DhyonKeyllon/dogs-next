@@ -9,7 +9,7 @@ export async function resetPassword(
   formData: FormData
 ): Promise<ActionResponse<null>> {
   const login = formData.get("login") as string;
-  const url = formData.get("url") as string;
+  const urlLost = formData.get("url") as string;
 
   try {
     const { url } = PASSWORD_LOST();
@@ -21,7 +21,7 @@ export async function resetPassword(
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ login, url }),
+      body: JSON.stringify({ login, url: urlLost }),
     });
 
     if (!response.ok) throw new Error("Email ou usuário já cadastrado.");

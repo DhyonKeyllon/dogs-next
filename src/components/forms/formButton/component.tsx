@@ -6,10 +6,15 @@ import { ReactNode } from "react";
 
 type FormButtonProps = {
   text: string;
+  disabled?: boolean;
 };
 
-export function FormButton({ text }: FormButtonProps) {
+export function FormButton({ text, disabled }: FormButtonProps) {
   const { pending } = useFormStatus();
 
-  return <Button disabled={pending}>{pending ? "Carregando..." : text}</Button>;
+  return (
+    <Button disabled={pending || disabled}>
+      {pending ? "Carregando..." : text}
+    </Button>
+  );
 }

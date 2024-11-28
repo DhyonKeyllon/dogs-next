@@ -5,10 +5,10 @@ export const metadata: Metadata = {
   description: "Redefine a sua senha.",
 };
 
-export default function ResetarPage() {
+export default function RedefinirPage() {
   return (
     <main>
-      <h1>Resetar</h1>
+      <h1>Redefinir</h1>
     </main>
   );
 }

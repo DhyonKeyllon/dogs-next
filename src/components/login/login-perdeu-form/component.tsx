@@ -6,23 +6,21 @@ import { useFormState } from "react-dom";
 
 import styles from "../login-form.module.css";
 import { FormButton } from "@/components/forms/formButton";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { ErrorMessage } from "@/components/helpers";
+import { useEffect, useState } from "react";
 
 export function LoginPerdeuForm() {
-  const { push } = useRouter();
-
   const [state, action] = useFormState(resetPassword, {
     ok: false,
     error: "",
     data: null,
   });
 
+  const [url, setUrl] = useState("");
+
   useEffect(() => {
-    if (state.ok) {
-      push("/conta");
-    }
-  }, [state.ok, push]);
+    setUrl(window.location.href.replace("perdeu", "redefinir"));
+  }, []);
 
   return (
     <form action={action} className={styles.form}>
@@ -31,7 +29,17 @@ export function LoginPerdeuForm() {
         InputAttributes={{ name: "login", type: "text" }}
       />
 
-      <FormButton text="Enviar email" />
+      <input type="hidden" name="url" value={url} />
+
+      <ErrorMessage error={state.error} />
+
+      {!state.ok && <FormButton text="Enviar email" />}
+
+      {state.ok && (
+        <p style={{ color: "#4c1", marginTop: "4px" }}>
+          Email enviado com sucesso!
+        </p>
+      )}
     </form>
   );
 }
