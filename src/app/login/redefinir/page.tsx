@@ -1,3 +1,4 @@
+import { LoginRedefinirForm } from "@/components/login/login-redefinir-form";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -5,10 +6,14 @@ export const metadata: Metadata = {
   description: "Redefine a sua senha.",
 };
 
-export default function RedefinirPage() {
+export default function RedefinirPage({ searchParams }) {
+  console.log(searchParams);
+
   return (
-    <main>
-      <h1>Redefinir</h1>
-    </main>
+    <div className="animeLeft">
+      <h1 className="title">Redefine sua senha</h1>
+
+      <LoginRedefinirForm />
+    </div>
   );
 }

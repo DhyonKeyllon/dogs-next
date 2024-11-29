@@ -1,6 +1,6 @@
 "use client";
 
-import { forgotPassword } from "@/actions/auth";
+import { resetPassword } from "@/actions/auth";
 import { Input } from "@/components/forms";
 import { useFormState } from "react-dom";
 
@@ -9,8 +9,8 @@ import { FormButton } from "@/components/forms/formButton";
 import { ErrorMessage } from "@/components/helpers";
 import { useEffect, useState } from "react";
 
-export function LoginPerdeuForm() {
-  const [state, action] = useFormState(forgotPassword, {
+export function LoginRedefinirForm() {
+  const [state, action] = useFormState(resetPassword, {
     ok: false,
     error: "",
     data: null,
@@ -25,21 +25,13 @@ export function LoginPerdeuForm() {
   return (
     <form action={action} className={styles.form}>
       <Input
-        label="Email / Usuário"
-        InputAttributes={{ name: "login", type: "text" }}
+        label="Nova senha"
+        InputAttributes={{ name: "password", type: "password" }}
       />
-
-      <input type="hidden" name="url" value={url} />
 
       <ErrorMessage error={state.error} />
 
-      {!state.ok && <FormButton text="Enviar email" />}
-
-      {state.ok && (
-        <p style={{ color: "#4c1", marginTop: "4px" }}>
-          Email enviado com sucesso!
-        </p>
-      )}
+      {!state.ok && <FormButton text="Redefinir senha" />}
     </form>
   );
 }
