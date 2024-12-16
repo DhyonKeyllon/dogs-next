@@ -40,10 +40,10 @@ export function UserContextProvider({
   const [user, setUser] = useState<User | null>(userData);
 
   useEffect(() => {
-    if (user === null) {
-      setUser(userData);
-    }
-  }, [user, userData]);
+    setUser(userData);
+
+    console.log(userData);
+  }, [userData, setUser]);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
