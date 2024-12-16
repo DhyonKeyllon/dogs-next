@@ -6,7 +6,7 @@ import { ActionResponse } from "@/shared/types/action-response";
 import { User } from "@/shared/types/user";
 import { cookies } from "next/headers";
 
-export async function getUser(): Promise<ActionResponse<User | null>> {
+async function getUser(): Promise<ActionResponse<User | null>> {
   const token = cookies().get("token")?.value;
 
   if (!token) throw new Error("Autenticação não autorizada.");
@@ -14,6 +14,7 @@ export async function getUser(): Promise<ActionResponse<User | null>> {
   const { url } = USER_GET();
 
   try {
+    // ? By default, in next v14 fetch is cached, but the function no.
     const response = await fetch(url, {
       method: "GET",
       headers: {
@@ -38,3 +39,8 @@ export async function getUser(): Promise<ActionResponse<User | null>> {
     return apiError(error);
   }
 }
+
+// ? * "cache" function by created by React, is used to cache all function. Useful to complex functions.
+
+// const getUserCache = cache(getUser);
+// export default getUserCache;
