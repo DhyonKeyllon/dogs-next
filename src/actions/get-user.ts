@@ -2,18 +2,18 @@
 
 import { USER_GET } from "@/functions/api";
 import { apiError } from "@/functions/api-error";
-import { ActionResponse } from "@/shared/types/action-response";
+import { ActionResponse } from "@/shared/types";
 import { User } from "@/shared/types/user";
 import { cookies } from "next/headers";
 
-async function getUser(): Promise<ActionResponse<User | null>> {
-  const token = cookies().get("token")?.value;
-
-  if (!token) throw new Error("Autenticação não autorizada.");
-
+export async function getUser(): Promise<ActionResponse<User | null>> {
   const { url } = USER_GET();
 
   try {
+    const token = cookies().get("token")?.value;
+
+    if (!token) throw new Error("Autenticação não autorizada.");
+
     // ? By default, in next v14 fetch is cached, but the function no.
     const response = await fetch(url, {
       method: "GET",

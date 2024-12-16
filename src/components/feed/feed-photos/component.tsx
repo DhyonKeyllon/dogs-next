@@ -1,4 +1,4 @@
-import { Photo } from "@/shared/types/photo";
+import { Photo } from "@/shared/types";
 import Image from "next/image";
 import Link from "next/link";
 

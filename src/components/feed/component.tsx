@@ -1,4 +1,4 @@
-import { Photo } from "@/shared/types/photo";
+import { Photo } from "@/shared/types";
 import { FeedPhotos } from "./feed-photos";
 
 export function Feed({ photos }: { photos: Photo[] }) {

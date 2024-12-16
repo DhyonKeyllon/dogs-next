@@ -1,6 +1,6 @@
 "use server";
 
-import { Photo } from "@/shared/types/photo";
+import { Photo } from "@/shared/types";
 
 export async function getPhotos() {
   const response = await fetch(

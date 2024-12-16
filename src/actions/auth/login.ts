@@ -2,7 +2,7 @@
 
 import { TOKEN_POST } from "@/functions/api";
 import { apiError } from "@/functions/api-error";
-import { ActionResponse } from "@/shared/types/action-response";
+import { ActionResponse } from "@/shared/types";
 import { cookies } from "next/headers";
 
 export async function login(
