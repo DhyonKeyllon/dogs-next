@@ -1,3 +1,4 @@
 export * from "./auth";
 export * from "./create-user";
-export * from "./photos-get";
+export * from "./get-photos";
+export * from "./get-user";

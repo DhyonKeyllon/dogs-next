@@ -1,9 +1,10 @@
 import Link from "next/link";
 import styles from "./header.module.css";
 import Image from "next/image";
+import { getUser } from "@/actions/get-user";
 
 export async function Header() {
-  const user = true;
+  const { data: user } = await getUser();
 
   return (
     <header className={styles.header}>
@@ -19,7 +20,7 @@ export async function Header() {
         </Link>
         {user ? (
           <Link className={styles.login} href={"/conta"}>
-            Dogs
+            {user.username}
           </Link>
         ) : (
           <Link className={styles.login} href={"/login"}>

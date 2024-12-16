@@ -1,4 +1,6 @@
 export type User = {
-  username: string;
-  email: string;
+  readonly id: String;
+  readonly username: string;
+  readonly email: string;
+  readonly nome: string;
 };
