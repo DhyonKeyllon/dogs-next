@@ -41,8 +41,6 @@ export function UserContextProvider({
 
   useEffect(() => {
     setUser(userData);
-
-    console.log(userData);
   }, [userData, setUser]);
 
   return (
