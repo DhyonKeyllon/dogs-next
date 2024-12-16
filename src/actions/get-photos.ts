@@ -27,7 +27,7 @@ export async function getPhotos({
       },
     });
 
-    if (!response.ok) throw new Error("Erro ao carregas as fotos");
+    if (!response.ok) throw new Error("Erro ao carregar as fotos");
 
     const data = (await response.json()) as Photo[];
 
