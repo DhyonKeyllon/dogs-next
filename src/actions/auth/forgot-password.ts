@@ -2,7 +2,7 @@
 
 import { PASSWORD_LOST } from "@/functions/api";
 import { apiError } from "@/functions/api-error";
-import { ActionResponse } from "@/shared/types/action-response";
+import { ActionResponse } from "@/shared/types";
 
 export async function forgotPassword(
   _state: {},

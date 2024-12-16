@@ -1,4 +1,4 @@
-import { ActionResponse } from "@/shared/types/action-response";
+import { ActionResponse } from "@/shared/types";
 
 export function apiError(error: unknown): ActionResponse<null> {
   const ok = false;

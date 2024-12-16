@@ -2,7 +2,7 @@
 
 import { PASSWORD_RESET } from "@/functions/api";
 import { apiError } from "@/functions/api-error";
-import { ActionResponse } from "@/shared/types/action-response";
+import { ActionResponse } from "@/shared/types";
 import { redirect } from "next/navigation";
 
 export async function resetPassword(

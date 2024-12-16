@@ -1,6 +1,6 @@
 "use client";
 
-import { resetPassword } from "@/actions/auth";
+import { resetPassword } from "@/actions";
 import { Input } from "@/components/forms";
 import { useFormState } from "react-dom";
 

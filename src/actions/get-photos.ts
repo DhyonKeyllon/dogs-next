@@ -1,8 +1,8 @@
 "use server";
 
-import { Photo } from "@/shared/types/photo";
+import { Photo } from "@/shared/types";
 
-export async function photosGet() {
+export async function getPhotos() {
   const response = await fetch(
     "https://dogsapi.origamid.dev/json/api/photo/?_page=1&_total=6&_user=0"
   );
