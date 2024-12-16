@@ -70,7 +70,17 @@ export function ContaHeader() {
           <AdicionarIcon />
           {mobile && "Adicionar Foto"}
         </Link>
-        <button onClick={handleLogout}>
+        <button
+          onClick={handleLogout}
+          aria-label="Logout"
+          type="button"
+          className={styles.logoutButton}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              handleLogout();
+            }
+          }}
+        >
           <SairIcon />
           {mobile && "Sair"}
         </button>

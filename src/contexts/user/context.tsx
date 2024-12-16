@@ -6,6 +6,7 @@ import {
   Dispatch,
   Suspense,
   useContext,
+  useEffect,
   useState,
   useTransition,
   type ReactNode,
@@ -37,6 +38,12 @@ export function UserContextProvider({
   user: userData,
 }: UserContextProviderProps) {
   const [user, setUser] = useState<User | null>(userData);
+
+  useEffect(() => {
+    if (user === null) {
+      setUser(userData);
+    }
+  }, [user, userData]);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
