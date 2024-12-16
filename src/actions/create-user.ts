@@ -3,7 +3,7 @@
 import { USER_POST } from "@/functions/api";
 import { apiError } from "@/functions/api-error";
 import { ActionResponse } from "@/shared/types/action-response";
-import { login } from "./login";
+import { login } from "./auth/login";
 
 export async function createUser(
   _state: {},

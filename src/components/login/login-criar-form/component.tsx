@@ -1,6 +1,6 @@
 "use client";
 
-import { createUser } from "@/actions/auth";
+import { createUser } from "@/actions";
 import { Input } from "@/components/forms";
 import { ErrorMessage } from "@/components/helpers";
 import { useFormState } from "react-dom";
