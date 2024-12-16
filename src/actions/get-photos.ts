@@ -4,16 +4,12 @@ import { PHOTOS_GET } from "@/functions/api";
 import { Photo } from "@/shared/types";
 
 type GetPhotosInput = {
-  page?: number;
-  total?: number;
-  user?: string;
+  page: number;
+  total: number;
+  user: string;
 };
 
-export async function getPhotos({
-  page = 1,
-  total = 6,
-  user = "0",
-}: GetPhotosInput) {
+export async function getPhotos({ page, total, user }: GetPhotosInput) {
   const { url } = PHOTOS_GET({ page, total, user });
 
   const response = await fetch(url, {
