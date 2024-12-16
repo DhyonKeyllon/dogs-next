@@ -1,7 +1,7 @@
 import { forwardRef, InputHTMLAttributes } from "react";
 
 type InputProps = {
-  label: string;
+  label?: string;
   InputAttributes?: InputHTMLAttributes<HTMLInputElement>;
   error?: string;
 };
@@ -12,9 +12,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ label, InputAttributes, error }, ref) => {
     return (
       <div className={styles.wrapper}>
-        <label className={styles.label} htmlFor={InputAttributes?.name}>
-          <strong>{label}</strong>
-        </label>
+        {label && (
+          <label className={styles.label} htmlFor={InputAttributes?.name}>
+            <strong>{label}</strong>
+          </label>
+        )}
         <input
           className={styles.input}
           id={InputAttributes?.name}
