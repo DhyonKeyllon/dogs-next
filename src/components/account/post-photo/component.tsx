@@ -7,7 +7,7 @@ import { useFormState } from "react-dom";
 
 import styles from "./post-photo.module.css";
 import { FormButton } from "@/components/forms/formButton";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export function PhotoPost() {
@@ -18,6 +18,12 @@ export function PhotoPost() {
   });
 
   const [img, setImg] = useState<string>("");
+
+  useEffect(() => {
+    return () => {
+      if (img) URL.revokeObjectURL(img);
+    };
+  }, [img]);
 
   function handleOnChangeImage({ target }: ChangeEvent<HTMLInputElement>) {
     if (target.files) setImg(URL.createObjectURL(target.files[0]));
@@ -33,7 +39,12 @@ export function PhotoPost() {
         />
         <Input
           label="Idade"
-          InputAttributes={{ name: "idade", type: "idade" }}
+          InputAttributes={{
+            name: "idade",
+            type: "number",
+            min: "0",
+            max: "30",
+          }}
         />
         <Input
           InputAttributes={{
@@ -42,7 +53,9 @@ export function PhotoPost() {
             type: "file",
             className: styles.file,
             onChange: handleOnChangeImage,
+            accept: "image/*",
           }}
+          label="Imagem do pet"
         />
         <ErrorMessage error={state.error} />
         <FormButton text="Enviar" />
@@ -54,7 +67,7 @@ export function PhotoPost() {
           style={{
             backgroundImage: `url(${img})`,
           }}
-        ></div>
+        />
       )}
     </section>
   );

@@ -7,6 +7,8 @@ import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect, RedirectType } from "next/navigation";
 
+const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+
 export async function postPhoto(
   _state: {},
   formData: FormData
@@ -24,6 +26,15 @@ export async function postPhoto(
     if (!token) throw new Error("Usuário não autenticado.");
     if (!name || !years || !weight || image.size === 0)
       throw new Error("Preencha os dados.");
+    if (isNaN(Number(years)) || isNaN(Number(weight)))
+      throw new Error("Idade e peso devem ser números válidos.");
+    if (Number(years) <= 0 || Number(weight) <= 0)
+      throw new Error("Idade e peso devem ser valores positivos.");
+    if (image.size > MAX_FILE_SIZE)
+      throw new Error("Arquivo muito grande. Tamanho máximo: 5MB");
+    if (!image.type.startsWith("image/"))
+      throw new Error("Arquivo deve ser uma imagem");
+
     const response = await fetch(url, {
       method: "POST",
       headers: {
