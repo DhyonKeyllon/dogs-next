@@ -22,8 +22,6 @@ export function Feed({
   const fetching = useRef(false);
 
   function infiniteScroll() {
-    console.log("aconteceu");
-
     if (fetching.current) return;
 
     fetching.current = true;
@@ -61,8 +59,6 @@ export function Feed({
   );
 
   useEffect(() => {
-    console.log({ page });
-
     if (page === 1) return;
 
     getPagePhotos(page);
