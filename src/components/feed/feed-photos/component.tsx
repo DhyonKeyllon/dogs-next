@@ -8,7 +8,7 @@ export function FeedPhotos({ photos }: { photos: Photo[] }) {
   return (
     <ul className={`${styles.feed} animeLeft`}>
       {photos.map((photo, index) => (
-        <li className={styles.photo} key={photo.id + index}>
+        <li className={styles.photo} key={`${photo.id}-${photo.date}-${index}`}>
           <Link href={`/foto/${photo.id}`} scroll={false}>
             <Image
               src={photo.src}

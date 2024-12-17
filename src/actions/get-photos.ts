@@ -10,22 +10,23 @@ type GetPhotosInput = {
   user?: 0 | string;
 };
 
-export async function getPhotos({
-  page = 1,
-  total = 6,
-  user = 0,
-}: GetPhotosInput = {}): Promise<ActionResponse<Photo[] | null>> {
+export async function getPhotos(
+  { page = 1, total = 6, user = 0 }: GetPhotosInput = {},
+  optionsFront?: RequestInit
+): Promise<ActionResponse<Photo[] | null>> {
   const { url } = PHOTOS_GET({ page, total, user });
 
+  const options = optionsFront || {
+    next: {
+      // add 10s to revalidate cache
+      revalidate: 10,
+      // add tags ["photo"] to call revalidateTags on post a new foto in post-photo action
+      tags: ["photos"],
+    },
+  };
+
   try {
-    const response = await fetch(url, {
-      next: {
-        // add 10s to revalidate cache
-        revalidate: 10,
-        // add tags ["photo"] to call revalidateTags on post a new foto in post-photo action
-        tags: ["photos"],
-      },
-    });
+    const response = await fetch(url, options);
 
     if (!response.ok) throw new Error("Erro ao carregar as fotos");
 
