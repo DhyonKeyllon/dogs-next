@@ -4,7 +4,7 @@
   height: 100vh;
   top: 0px;
   left: 0px;
-  background: rgba(0, 0, 0, .4);
+  background: rgba(0, 0, 0, 0.4);
   z-index: 100;
   padding: 2rem 4rem;
   display: flex;
@@ -14,4 +14,16 @@
   .modal {
     padding: 2rem;
   }
+}
+
+.loadingWrapper {
+  display: flex;
+  height: 100px;
+  margin: 1rem auto;
+}
+
+.loadingWrapper p {
+  text-align: center;
+  margin: auto;
+  color: #888;
 }

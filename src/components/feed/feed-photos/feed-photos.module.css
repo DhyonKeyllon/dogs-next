@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   justify-items: center;
 }
 
@@ -49,10 +49,10 @@
 .visualizacao::before {
   width: 16px;
   height: 10px;
-  content: '';
+  content: "";
   display: inline-block;
   margin-right: 0.25rem;
-  background: url('/assets/visualizacao.svg') no-repeat;
+  background: url("/assets/visualizacao.svg") no-repeat;
 }
 
 .photo:hover .visualizacao {
