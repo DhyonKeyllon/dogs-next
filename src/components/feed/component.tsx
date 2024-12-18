@@ -4,6 +4,9 @@ import { Photo } from "@/shared/types";
 import { FeedPhotos } from "./feed-photos";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { getPhotos } from "@/actions";
+import { Loading } from "@/components/helpers";
+
+import styles from "./feed-modal.module.css";
 
 export function Feed({
   photos,
@@ -81,9 +84,15 @@ export function Feed({
   }, [setPage, infinite]);
 
   return (
-    <>
+    <div>
       <FeedPhotos photos={photosFeed} />
-      {loading && <p>Carregando...</p>}
-    </>
+      <div className={styles.loadingWrapper}>
+        {loading ? (
+          <Loading />
+        ) : (
+          !infinite && <p>Não existem mais postagens.</p>
+        )}
+      </div>
+    </div>
   );
 }
