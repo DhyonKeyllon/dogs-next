@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import { useEffect, useState } from "react";
 import FeedIcon from "@/icons/feed-icon";
 import EstatisticasIcon from "@/icons/estatisticas-icon";
 import AdicionarIcon from "@/icons/adicionar-icon";
@@ -27,7 +27,7 @@ export function ContaHeader() {
   const { setUser } = useUser();
 
   const mobile = useMedia("(max-width: 40rem)");
-  const [mobileMenu, setMobileMenu] = React.useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
 
   const pathname = usePathname();
   useEffect(() => {

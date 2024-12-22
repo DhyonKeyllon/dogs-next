@@ -1,10 +1,10 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import styles from "./loading.module.css";
 
 export const Loading = ({ modal }: { modal?: boolean }) => {
-  const [step, setStep] = React.useState(0);
+  const [step, setStep] = useState(0);
 
-  React.useEffect(() => {
+  useEffect(() => {
     function updateStep() {
       setStep((step) => {
         if (step < 3) return step + 1;
