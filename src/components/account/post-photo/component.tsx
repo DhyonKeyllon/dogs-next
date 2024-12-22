@@ -1,6 +1,6 @@
 "use client";
 
-import { postPhoto } from "@/actions";
+import { createPhoto } from "@/actions";
 import { Input } from "@/components/forms";
 import { ErrorMessage } from "@/components/helpers";
 import { useFormState } from "react-dom";
@@ -11,7 +11,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export function PhotoPost() {
-  const [state, action] = useFormState(postPhoto, {
+  const [state, action] = useFormState(createPhoto, {
     ok: false,
     error: "",
     data: null,

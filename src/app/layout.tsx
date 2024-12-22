@@ -5,6 +5,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { UserContextProvider } from "@/contexts/user";
 import { getUser } from "@/actions";
+import { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Dogs Next",
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   const { data: user } = await getUser();
 

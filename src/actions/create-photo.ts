@@ -9,7 +9,7 @@ import { redirect, RedirectType } from "next/navigation";
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
 
-export async function postPhoto(
+export async function createPhoto(
   _state: {},
   formData: FormData
 ): Promise<ActionResponse<null>> {
