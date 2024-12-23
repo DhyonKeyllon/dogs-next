@@ -1,10 +1,11 @@
 import { type NextRequest, NextResponse } from "next/server";
+import { verifyToken } from "./functions/verify-token";
 
 export async function middleware(req: NextRequest) {
   const token = req.cookies.get("token")?.value;
 
   // ! TODO: Change this validation with a jwt validation lib
-  const authenticated = !!token;
+  const authenticated = token ? await verifyToken(token) : false;
 
   if (!authenticated && req.nextUrl.pathname.startsWith("/conta")) {
     return NextResponse.redirect(new URL("/login", req.url));
