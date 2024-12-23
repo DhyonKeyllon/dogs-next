@@ -1,12 +1,12 @@
 "use client";
 
 import { Photo } from "@/shared/types";
-import { FeedPhotos } from "./feed-photos";
+import { FeedPhotos } from "./photos";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { getPhotos } from "@/actions";
 import { Loading } from "@/components/helpers";
 
-import styles from "./feed-modal.module.css";
+import styles from "./feed.module.css";
 
 export function Feed({
   photos,

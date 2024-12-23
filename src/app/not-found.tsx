@@ -1,8 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function NotFound() {
+  const pathname = usePathname();
+
+  console.log({ pathname });
+
   return (
     <section className="container">
       <h1 className="title">Pagina não encontrada</h1>
