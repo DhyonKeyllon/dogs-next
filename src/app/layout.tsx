@@ -1,11 +1,17 @@
+import { ReactNode } from "react";
 import type { Metadata } from "next";
-import "./globals.css";
-import { type_second } from "@/functions/fonts";
+
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
+import { UserContextProvider } from "@/contexts/user";
+
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
-import { UserContextProvider } from "@/contexts/user";
+
 import { getUser } from "@/actions";
-import { ReactNode } from "react";
+import { type_second } from "@/functions/fonts";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Dogs Next",
@@ -32,6 +38,8 @@ export default async function RootLayout({
             <Footer />
           </div>
         </UserContextProvider>
+
+        <SpeedInsights />
       </body>
     </html>
   );
