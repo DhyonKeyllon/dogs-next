@@ -1,4 +1,4 @@
-export default function FeedIcon() {
+export function FeedIcon() {
   return (
     <svg
       width="28"

@@ -1,4 +1,4 @@
-export default function EnviarIcon() {
+export function SendIcon() {
   return (
     <svg
       width="43"

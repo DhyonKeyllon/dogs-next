@@ -1,4 +1,4 @@
-export default function AdicionarIcon() {
+export function AddIcon() {
   return (
     <svg
       width="28"

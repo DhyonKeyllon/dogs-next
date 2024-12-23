@@ -1,13 +1,15 @@
 "use client";
 
-import styles from "./photo.module.css";
-// import PhotoComments from './PhotoComments';
 import Link from "next/link";
-import { useUser } from "@/contexts/user";
 import Image from "next/image";
-import { PhotoWithComments } from "@/shared/types";
+
+import { useUser } from "@/contexts/user";
 import { PhotoDelete } from "./delete";
-import PhotoComments from "./comments/component";
+import { PhotoComments } from "./comments/component";
+
+import { PhotoWithComments } from "@/shared/types";
+
+import styles from "./photo.module.css";
 
 export const PhotoContent = ({
   photoWithComments,

@@ -1,4 +1,4 @@
-export default function EstatisticasIcon() {
+export function StatisticsIcon() {
   return (
     <svg
       width="28"

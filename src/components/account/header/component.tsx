@@ -1,16 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import FeedIcon from "@/icons/feed-icon";
-import EstatisticasIcon from "@/icons/estatisticas-icon";
-import AdicionarIcon from "@/icons/adicionar-icon";
-import SairIcon from "@/icons/sair-icon";
-import styles from "./account-header.module.css";
-import { useMedia } from "@/hooks/media";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+
+import { AddIcon, ExitIcon, FeedIcon, StatisticsIcon } from "@/icons";
+
 import { logout } from "@/actions";
+
+import { useMedia } from "@/hooks/media";
 import { useUser } from "@/contexts/user";
+
+import styles from "./account-header.module.css";
 
 function getTitle(pathname: string) {
   switch (pathname) {
@@ -65,14 +66,14 @@ export function ContaHeader() {
           href="/conta/estatisticas"
           className={pathname === "/conta/estatisticas" ? "active" : ""}
         >
-          <EstatisticasIcon />
+          <StatisticsIcon />
           {mobile && "Estatísticas"}
         </Link>
         <Link
           href="/conta/postar"
           className={pathname === "/conta/postar" ? "active" : ""}
         >
-          <AdicionarIcon />
+          <AddIcon />
           {mobile && "Adicionar Foto"}
         </Link>
         <button
@@ -86,7 +87,7 @@ export function ContaHeader() {
             }
           }}
         >
-          <SairIcon />
+          <ExitIcon />
           {mobile && "Sair"}
         </button>
       </nav>

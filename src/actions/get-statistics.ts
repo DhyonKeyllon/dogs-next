@@ -1,15 +1,9 @@
 "use server";
 
-import { PHOTOS_GET, STATS_GET } from "@/functions/api";
+import { STATS_GET } from "@/functions/api";
 import { apiError } from "@/functions/api-error";
-import { ActionResponse, Photo, Statistics } from "@/shared/types";
+import { ActionResponse, Statistics } from "@/shared/types";
 import { cookies } from "next/headers";
-
-type GetPhotosInput = {
-  page?: number;
-  total?: number;
-  user?: 0 | string;
-};
 
 export async function getStatistics(): Promise<
   ActionResponse<Statistics[] | null>

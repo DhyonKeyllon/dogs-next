@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./photo-comments.module.css";
 
-import { PhotoCommentsForm } from "../photo-comments-form";
+import { PhotoCommentsForm } from "../comments-form";
 import { useUser } from "@/contexts/user";
 import { Comment } from "@/shared/types";
 
-const PhotoComments = (props: {
+export const PhotoComments = (props: {
   single: boolean;
   id: number;
   comments: Comment[];
@@ -46,5 +46,3 @@ const PhotoComments = (props: {
     </>
   );
 };
-
-export default PhotoComments;
