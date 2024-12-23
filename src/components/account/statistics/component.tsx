@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { VictoryPie, VictoryChart, VictoryBar } from "victory";
 
 import { Statistics } from "@/shared/types";
@@ -20,7 +20,7 @@ function AccountStatistics({ statistics }: AccountStatisticsProps) {
   const [graph, setGraph] = useState<GraphData[]>([]);
   const [total, setTotal] = useState(0);
 
-  useEffect(() => {
+  const generatedGraphData = useMemo(() => {
     const graphData = statistics.map((item) => {
       return {
         x: item.title,
@@ -33,8 +33,13 @@ function AccountStatistics({ statistics }: AccountStatisticsProps) {
         .map(({ acessos }) => Number(acessos))
         .reduce((a, b) => a + b, 0)
     );
-    setGraph(graphData);
+
+    return graphData;
   }, [statistics]);
+
+  useEffect(() => {
+    setGraph(generatedGraphData);
+  }, [setGraph, generatedGraphData]);
 
   return (
     <section className={`${styles.graph} animeLeft`}>
