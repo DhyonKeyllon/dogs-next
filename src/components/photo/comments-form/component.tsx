@@ -6,7 +6,7 @@ import { SendIcon } from "@/icons/send";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Comment } from "@/shared/types";
 import { ErrorMessage } from "@/components/helpers";
-import { createComment } from "@/actions/create-comment";
+import { createComment } from "@/actions";
 
 function FormButton() {
   const { pending } = useFormStatus();

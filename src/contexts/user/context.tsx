@@ -1,14 +1,14 @@
 "use client";
 
+import { logout, validateToken } from "@/actions";
 import { User } from "@/shared/types";
 import {
   createContext,
   Dispatch,
-  Suspense,
+  useCallback,
   useContext,
   useEffect,
   useState,
-  useTransition,
   type ReactNode,
 } from "react";
 
@@ -38,6 +38,16 @@ export function UserContextProvider({
   user: userData,
 }: UserContextProviderProps) {
   const [user, setUser] = useState<User | null>(userData);
+
+  const validate = useCallback(async () => {
+    const { ok } = await validateToken();
+
+    if (!ok) await logout();
+  }, []);
+
+  useEffect(() => {
+    if (user) validate();
+  }, [user, validate]);
 
   useEffect(() => {
     setUser(userData);

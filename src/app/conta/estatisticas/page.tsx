@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { getStatistics } from "@/actions/get-statistics";
+import { getStatistics } from "@/actions";
 import dynamic from "next/dynamic";
 
 export const metadata: Metadata = {
