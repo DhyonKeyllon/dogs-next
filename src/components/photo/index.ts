@@ -1,2 +1,2 @@
 export * from "./component";
-export * from "./photo-delete";
+export * from "./delete";

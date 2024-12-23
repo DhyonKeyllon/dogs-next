@@ -6,8 +6,8 @@ import Link from "next/link";
 import { useUser } from "@/contexts/user";
 import Image from "next/image";
 import { PhotoWithComments } from "@/shared/types";
-import { PhotoDelete } from "./photo-delete";
-import PhotoComments from "./photo-comments/component";
+import { PhotoDelete } from "./delete";
+import PhotoComments from "./comments/component";
 
 export const PhotoContent = ({
   photoWithComments,
